@@ -9,31 +9,30 @@ int rows=int.Parse(ReadLine());
 
 Write("Введите количество столбцов массива: ");
 int columns=int.Parse(ReadLine());
+double[,] numbers = new double[rows, columns];
+FillArray2D(numbers);
+PrintArray2D(numbers);
 
-int[,] array = GetArray(rows, columns, -10, 10);
-PrintArray(array);
-
-int[,] GetArray(int m, int n, int minValue, int maxValue)
+void FillArray2D(double[,] array)
 {
-    int[,] result = new int[m, n];
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            result[i, j] = new Random().Next(minValue, maxValue + 1);
+            array[i, j] = new Random().Next(-10, 10);
         }
     }
-    return result;
 }
 
-void PrintArray(int[,] inArray)
+void PrintArray2D(double[,] array)
 {
-    for (int i = 0; i < inArray.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < inArray.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Write($"{inArray[i,j]} ");
+            Console.Write(array[i, j] + " ");
         }
-        WriteLine();
+        Console.WriteLine();
     }
+    Console.WriteLine();
 }
