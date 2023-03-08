@@ -1,7 +1,7 @@
 ﻿int rows = 5;
 int columns = 5;
 int[,] numbers = new int[rows, columns];
-FillArray(numbers);
+GetArray(numbers);
 PrintArray(numbers);
 
 double[] avgNumbers = new double[numbers.GetLength(1)];
@@ -17,7 +17,7 @@ for (int i = 0; i < numbers.GetLength(1); i++)
 }
 PrintArray2(avgNumbers);
 
-void FillArray(int[,] array)
+void GetArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
